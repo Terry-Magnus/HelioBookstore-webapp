@@ -2,6 +2,10 @@
 
 This is a web application built using React that allows users to browse and purchase books from a virtual bookstore. The application uses APIs to retrieve book data and display it to users.
 
+## Design 
+I used inspiration from this website design:
+https://www.figma.com/file/0PLLZaVYK5FGBMYuMjvMhu/Book-Webflow-Website-Template-(Community)?node-id=1-4153&t=VImQGgHWqkp5QGEL-0
+
 ## Features
 Browse books by category
 Search for books by title, author, or ISBN
