@@ -1,0 +1,20 @@
+@use "../../App.scss" as var;
+
+
+.error-banner {
+    background-color: var.$blue;
+    text-align: center;
+    color: var.$milk;
+    padding-block: 50px;
+}
+
+.error-msg {
+    text-align: center;
+
+    h1 {
+        font-size: 15em;
+        text-align: center;
+        margin: 100px 0 20px 0;
+        text-shadow: 5px 15px var.$yellow;
+    }
+}

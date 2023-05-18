@@ -1,0 +1,63 @@
+@use "../../App.scss" as var;
+
+.hero {
+    padding: 5vh 15vw;
+    background-color: var.$blue;
+    color: var.$milk;
+
+    .hero-text {
+
+        a {
+            color: var.$milk;
+            font-weight: 600;
+            font-size: 1.2rem;
+
+            &:first-child {
+                background-color: var.$yellow;
+                padding: 0.5rem 1.5rem;
+                margin-right: 20px;
+                color: var.$blue;
+                text-decoration: none;
+            }
+        }
+
+
+        @media (min-width: var.$bp-tablet) {
+            width: 40%;
+        }
+    }
+
+    .hero-banner {
+        img {
+            width: 100%;
+        }
+
+        @media (min-width: var.$bp-tablet) {
+            width: 50%;
+        }
+
+    }
+
+
+    @media (min-width: var.$bp-tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.featured {
+    padding: 0 10vw;
+
+    h1 {
+        color: var.$blue;
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .card-deck {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
