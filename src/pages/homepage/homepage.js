@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import Card from "../../components/card/card"
 import Hero from "./hero"
-import { libraryKey, fantasyBooks } from "../../utils/api"
+import { reviews, API_URL } from "../../utils/api"
 import { Link } from "react-router-dom"
 import "./homepage.scss"
 
@@ -11,8 +11,16 @@ const Homepage = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
+            const maxResults = 10
             try {
-                const response = await axios.get(`${fantasyBooks}${libraryKey}`)
+                const response = await axios.get(API_URL, {
+                    params: {
+                        q: "popular + books",
+                        printType: "books",
+                        orderBy: "relevance",
+                        maxResults: maxResults
+                    }
+                })//fetch books from api
                 const featuredBooks = response.data.items;
                 setFeaturedBooks(featuredBooks);
             } catch (error) {
@@ -31,12 +39,11 @@ const Homepage = () => {
                 <h1>Featured Books</h1>
                 <div className="card-deck">
                     {
-                        featuredBooks.map(({ id, volumeInfo }) => (
+                        featuredBooks.map(({ id, volumeInfo }) => (//get volumeInfo and id from api
                             <Card key={id}
-                                image={volumeInfo.imageLinks.smallThumbnail}
+                                image={volumeInfo.imageLinks}
                                 title={volumeInfo.title}
                                 author={volumeInfo.authors}
-                                description={volumeInfo.description}
                             />
                         ))
                     }
@@ -46,12 +53,25 @@ const Homepage = () => {
                 <h2>Get a Book Today!</h2>
                 <hr />
                 <p>Why don't you take a peek at our various genres and have a splendid read?</p>
-                <Link to="/collections"></Link>
+                <button><Link to="/collections">See collections</Link></button>
             </section>
-            <section className="testimonials">
-                <Card />
-                <Card />
-                <Card />
+            <section className="reviews">
+                {
+                    reviews.map((review, index) => {
+                        return (
+                            <div className="review" key={index}>
+                                <div className="review-head">
+                                    <img src={review.img} alt={review.name} />
+                                    <div>
+                                        <h3>{review.name}</h3>
+                                        <p>stars</p>
+                                    </div>
+                                </div>
+                                <p>All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.</p>
+                            </div>
+                        )
+                    })
+                }
             </section>
         </>
     )

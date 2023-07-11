@@ -1,11 +1,15 @@
 @use "../../App.scss" as var;
 
 .hero {
-    padding: 5vh 15vw;
+    padding: 5vh 10vw;
     background-color: var.$blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: var.$milk;
 
     .hero-text {
+        width: 50%;
 
         a {
             color: var.$milk;
@@ -21,28 +25,29 @@
             }
         }
 
-
-        @media (min-width: var.$bp-tablet) {
-            width: 40%;
+        @media (max-width: var.$bp-tablet) {
+            height: 40%;
+            width: 100%;
         }
     }
 
     .hero-banner {
+        width: 40%;
+
         img {
             width: 100%;
         }
 
-        @media (min-width: var.$bp-tablet) {
-            width: 50%;
+        @media (max-width: var.$bp-tablet) {
+            height: 60%;
+            width: 100%;
         }
 
     }
 
-
-    @media (min-width: var.$bp-tablet) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    @media (max-width: var.$bp-tablet) {
+        flex-direction: column;
+        row-gap: 50px;
     }
 }
 
@@ -59,5 +64,58 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+    }
+}
+
+.call-to-action {
+    padding: 100px 50px;
+    background-color: var.$blue;
+    color: var.$milk;
+
+    h2 {
+        font-size: 2em;
+    }
+
+    hr {
+        height: 3px;
+        background-color: var.$yellow;
+        border: 0;
+        width: 50px;
+        margin-right: 100%;
+        border-radius: 50px;
+    }
+
+    p {
+        margin-block: 20px;
+    }
+
+    button {
+        border: 3px solid var.$yellow;
+        background: none;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+
+        a {
+            text-decoration: none;
+            color: var.$milk;
+
+        }
+    }
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 0;
+
+    .review {
+        background-color: var.$grey;
+        width: 25%;
+
+        .review-head {
+            display: flex;
+            justify-content: space-betweens;
+        }
     }
 }

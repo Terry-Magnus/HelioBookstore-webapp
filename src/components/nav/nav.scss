@@ -34,6 +34,11 @@ nav {
         justify-content: space-between;
         align-items: center;
 
+        a {
+            color: var.$milk;
+            text-decoration: none;
+        }
+
         @media (max-width: var.$bp-tablet) {
             display: none;
         }

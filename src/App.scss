@@ -1,12 +1,11 @@
 // Color palette
 $blue: #1B3764;
 $yellow: #FFCA42;
-$milk: #f7f9fc;
+$milk: #FFFFFF;
+$grey: #F6F8FC;
 $bp-tablet: 768px;
 
 .app {
     min-height: 100vh;
-    display: flex;
     box-sizing: border-box;
-    flex-direction: column;
 }

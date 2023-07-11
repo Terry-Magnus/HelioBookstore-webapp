@@ -1,16 +1,31 @@
 export const libraryKey = "AIzaSyAULKqQRGsICBXotsLjc64Uutj0bZsPOAc"// My Googlebooks API key
-export const fantasyBooks = "https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&printType=books&orderBy=relevance&maxResults=10&key="
+export const API_URL = "https://www.googleapis.com/books/v1/volumes"
+export const genres = [
+    "thriller",
+    "fantasy",
+    "romance",
+    "self-help",
+    "business",
+    "science",
+    "non-fiction"
+];
 export const social = ["facebook", "twitter", "linkedin"]
 
-export const testimonials = [
+export const reviews = [
     {
-        name: "Ross Geller"
+        name: "Martin Philips",
+        title: "Awesome Impact",
+        img: "../components/images/martin.png"
     },
     {
-        name: "Chandler Bing"
+        name: "James Anderson",
+        title: "Great Books Collection",
+        img: "../components/images/james.png"
     },
     {
-        name: "Joey Tribianni"
+        name: "Christina Louis",
+        title: "Mind Blowing Words",
+        img: "../components/images/christina.png"
     }
 ]
 

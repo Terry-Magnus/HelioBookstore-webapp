@@ -2,7 +2,6 @@ import { useState } from "react"
 import { social } from "../../utils/api"
 import "./nav.scss"
 import { NavLink } from "react-router-dom"
-import Homepage from "../../pages/homepage/homepage"
 
 const Nav = () => {
     const [toggleNav, setToggleNav] = useState(false)
