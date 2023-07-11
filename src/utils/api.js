@@ -1,5 +1,4 @@
-export const libraryKey = "AIzaSyAULKqQRGsICBXotsLjc64Uutj0bZsPOAc"// My Googlebooks API key
-export const API_URL = "https://www.googleapis.com/books/v1/volumes"
+export const API_URL = "https://example-data.draftbit.com/books"
 export const genres = [
     "thriller",
     "fantasy",
