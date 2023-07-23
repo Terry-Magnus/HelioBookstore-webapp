@@ -1,7 +1,16 @@
 import { useState } from "react"
-import { social } from "../../utils/api"
 import "./nav.scss"
 import { NavLink } from "react-router-dom"
+import { SecondaryBtn } from "../buttons/custom-buttons"
+
+export const Logo = () => {
+    return (
+        <div className="logo">
+            <img src={process.env.PUBLIC_URL + "/logo.png"} width={32} alt="logo" />
+            <NavLink to="/">HELIO</NavLink>
+        </div>
+    )
+}
 
 const Nav = () => {
     const [toggleNav, setToggleNav] = useState(false)
@@ -13,35 +22,27 @@ const Nav = () => {
     return (
         <>
             <nav>
-                <div className="logo">
-                    <img src={process.env.PUBLIC_URL + "/logo.png"} width={32} alt="logo" />
-                    <span>Helio</span>
-                </div>
-                <div className="social">
-                    {social.map((link, index) => {
-                        return (
-                            <button key={index}>
-                                <img src={require(`../images/${link}.png`)} alt={link} />
-                            </button>
-                        )
-                    })}
-                </div>
+                <Logo />
                 <div className="nav-links">
                     <NavLink to="/">Home</NavLink>
                     <NavLink>About</NavLink>
                     <NavLink>Contact</NavLink>
+                    <NavLink role="button" className="secondary-btn" to="/login">Login</NavLink>
                 </div>
 
-                <button className={`hamburger ${toggleNav ? "active" : null}`} onClick={showMobileNav}>
+                <button className={`hamburger ${toggleNav ? "active" : ""}`} onClick={showMobileNav}>
                     <div className="bar"></div>
                 </button>
             </nav>
 
 
-            <div className={`mobile-nav ${toggleNav ? "active" : null}`}>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+            <div className={`mobile-nav ${toggleNav ? "active" : ""}`}>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <SecondaryBtn><NavLink role="button" to="/login">Login</NavLink></SecondaryBtn>
             </div>
         </>
     )

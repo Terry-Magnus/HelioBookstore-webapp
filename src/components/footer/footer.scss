@@ -1,55 +1,6 @@
 @use "../../App.scss" as var;
 
 footer {
-    background: var.$blue;
-    display: flex;
-    justify-content: space-around;
+    background: var.$tetiary;
     padding: 2.5vh 2.5vw;
-
-    .footer-left {
-        .logo {
-            display: flex;
-            align-items: center;
-            color: var.$milk;
-            font-weight: 700;
-            width: 100px;
-            margin-bottom: 10px;
-        }
-
-        .social {
-            width: 100px;
-            display: flex;
-
-            button {
-                width: 2rem;
-                background: transparent;
-                border: 1px solid var.$yellow;
-                color: var.$milk;
-                height: 2rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-    }
-
-    .footer-links {
-        li {
-            list-style-type: circle;
-            color: var.$yellow;
-
-            a {
-                color: var.$milk;
-                text-decoration: none;
-            }
-        }
-    }
-
-    .footer-right {
-        color: var.$milk;
-    }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 }

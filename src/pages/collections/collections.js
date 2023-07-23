@@ -19,7 +19,7 @@ const Collections = () => {
             <div>
                 <h1>Books by Category</h1>
 
-                {
+                {/* {
                     genres.map((genre) => {
                         return (
                             <div key={genre}>
@@ -27,7 +27,7 @@ const Collections = () => {
                             </div>
                         )
                     })
-                }
+                } */}
             </div>
         </>
     )
