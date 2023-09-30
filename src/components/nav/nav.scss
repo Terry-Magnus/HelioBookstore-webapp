@@ -93,37 +93,30 @@ nav {
     padding-top: 120px;
     transition: 0.4s;
 
-    li {
-        list-style: none;
+    ul {
+        padding-left: 0;
 
-        a {
-            display: block;
-            text-align: center;
-            max-width: 50%;
-            margin: 0 auto 2rem;
-            padding: 1rem;
-            background-color: none;
-            color: var.$text;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.2rem;
+        li {
+            list-style: none;
 
-            &:hover {
-                background-color: var.$text-alt;
+            a {
+                display: block;
+                text-align: center;
+                max-width: 50%;
+                margin: 0 auto 2rem;
+                background-color: none;
+                color: var.$text;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: var.$text-alt;
+                }
+
             }
-
         }
-    }
 
-    button {
-        position: absolute;
-        left: 25vw;
-
-        a {
-            text-decoration: none;
-            color: #fff;
-        }
     }
 }
 

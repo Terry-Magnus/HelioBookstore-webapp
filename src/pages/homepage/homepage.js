@@ -5,14 +5,21 @@ import "./homepage.scss"
 const Homepage = () => {
     const [featuredBooks, setFeaturedBooks] = useState([])
 
-    const getFeaturedBooks = async () => {
-        const response = await fetch("https://example-data.draftbit.com/books?_limit=8")
-        const results = await response.json()
-        console.log(results)
-    }
-    useEffect(() => {
-        getFeaturedBooks()
-    }, [featuredBooks])
+
+    // const increase = () => {
+    //     dispatch({ type = "INC" })
+    // }
+    // const decrease = () => {
+    //     dispatch({ type = "DEC" })
+    // }
+    // const getFeaturedBooks = async () => {
+    //     const response = await fetch("https://example-data.draftbit.com/books?_limit=8")
+    //     const results = await response.json()
+    //     console.log(results)
+    // }
+    // useEffect(() => {
+    //     getFeaturedBooks()
+    // }, [featuredBooks])
 
     return (
         <>
@@ -40,6 +47,7 @@ const Homepage = () => {
             </section>
             <section className="reviews">
                 <h4>No reviews available at this time</h4>
+                {/* <h2>{counter}</h2> */}
             </section>
         </>
     )

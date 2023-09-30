@@ -7,27 +7,33 @@ import {
 import Collections from "./pages/collections/collections";
 import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
-import Login from "./pages/login/login"
+import Auth from "./pages/auth"
 import { auth } from "./firebase/firebase.utils"
 import './App.scss';
 
 
 function App() {
-    const [currentUser, setCurrentUser] = useState()
-
+    const [currentUser, setCurrentUser] = useState(null)
     useEffect(() => {
-        await.onAuthStateChanged(user => {
-            setCurrentUser(user)
+        // listen for changes in authentication state
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setCurrentUser(user)
+            } else {
+                setCurrentUser(null)
+            }
         })
+        const cleanup = () => unsubscribe()
+        return cleanup
     })
     return (
         <div className="app">
-            <Nav />
+            <Nav currentUser={currentUser} />
             <Routes>
                 <Route exact path="/" element={<Homepage />} />
                 <Route path="/collections" element={<Collections />} />
                 <Route path="*" element={<NotFound />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/auth" element={<Auth />} />
             </Routes>
             <Footer />
         </div>

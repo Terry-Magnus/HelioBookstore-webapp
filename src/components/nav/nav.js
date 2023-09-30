@@ -2,6 +2,8 @@ import { useState } from "react"
 import "./nav.scss"
 import { NavLink } from "react-router-dom"
 import { SecondaryBtn } from "../buttons/custom-buttons"
+import { logOut } from "../../firebase/firebase.utils"
+import { Dropdown } from "react-bootstrap"
 
 export const Logo = () => {
     return (
@@ -12,8 +14,10 @@ export const Logo = () => {
     )
 }
 
-const Nav = () => {
+const Nav = ({ currentUser }) => {
     const [toggleNav, setToggleNav] = useState(false)
+
+    console.log(currentUser)
 
     const showMobileNav = () => {
         setToggleNav(!toggleNav)
@@ -27,7 +31,19 @@ const Nav = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink>About</NavLink>
                     <NavLink>Contact</NavLink>
-                    <NavLink role="button" className="secondary-btn" to="/login">Login</NavLink>
+                    {currentUser === null ?
+                        <NavLink role="button" className="secondary-btn" to="/auth">Login</NavLink> :
+                        <Dropdown>
+                            <Dropdown.Toggle className="secondary-btn" id="dropdown-basic">
+                                User
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+                                <Dropdown.Item onClick={logOut}>Log Out</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    }
                 </div>
 
                 <button className={`hamburger ${toggleNav ? "active" : ""}`} onClick={showMobileNav}>

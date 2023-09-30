@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, getAuth, signOut } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,18 +11,16 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
 export const auth = getAuth(app)// export auth for users
-
-// Google auth util
-const provider = new GoogleAuthProvider()
-export const signInWithGoogle = () => {// generate google popup
-    signInWithPopup(auth, provider)
-        .then((results) => {
-            console.log(results)
-        }).catch((error) => {
-            console.error(error)
-        })
+export const provider = new GoogleAuthProvider()// get Google auth provider
+export const logOut = async () => {
+    try {
+        await signOut(auth)
+    } catch (error) {
+        console.log("Sign out Error:", error)
+    }
 }
