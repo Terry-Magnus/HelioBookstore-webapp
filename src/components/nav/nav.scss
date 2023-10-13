@@ -22,13 +22,13 @@ nav {
     }
 
     .nav-links {
-        width: 300px;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         a {
-            color: var.$text;
+            color: var.$secondary;
             text-decoration: none;
         }
 

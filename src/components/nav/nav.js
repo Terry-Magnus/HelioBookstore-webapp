@@ -1,9 +1,12 @@
 import { useState } from "react"
-import "./nav.scss"
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { SecondaryBtn } from "../buttons/custom-buttons"
+import CartIcon from "../cart-icon/cart-icon"
 import { logOut } from "../../firebase/firebase.utils"
 import { Dropdown } from "react-bootstrap"
+import "./nav.scss"
+import Cart from "../cart/cart"
 
 export const Logo = () => {
     return (
@@ -17,11 +20,10 @@ export const Logo = () => {
 const Nav = ({ currentUser }) => {
     const [toggleNav, setToggleNav] = useState(false)
 
-    console.log(currentUser)
-
     const showMobileNav = () => {
         setToggleNav(!toggleNav)
     }
+    const isCartHidden = useSelector((state) => state.cart.hidden)
 
     return (
         <>
@@ -31,6 +33,7 @@ const Nav = ({ currentUser }) => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink>About</NavLink>
                     <NavLink>Contact</NavLink>
+                    <CartIcon />
                     {currentUser === null ?
                         <NavLink role="button" className="secondary-btn" to="/auth">Login</NavLink> :
                         <Dropdown>
@@ -45,7 +48,7 @@ const Nav = ({ currentUser }) => {
                         </Dropdown>
                     }
                 </div>
-
+                {isCartHidden ? null : <Cart />}
                 <button className={`hamburger ${toggleNav ? "active" : ""}`} onClick={showMobileNav}>
                     <div className="bar"></div>
                 </button>

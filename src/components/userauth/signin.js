@@ -4,7 +4,8 @@ import { ButtonGroup, FormControl, FormGroup, FormLabel } from "react-bootstrap"
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 import { auth, provider } from "../../firebase/firebase.utils"
 import { redirect } from "react-router-dom"
-
+import { useDispatch } from "react-redux"
+import { loginUser } from "../../redux/slices/userSlice"
 
 const SignIn = () => {
     const [user, setUser] = useState({
@@ -20,21 +21,15 @@ const SignIn = () => {
         }))
     }
 
-
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
             await signInWithEmailAndPassword(auth, email, password)
-            setUser({// reset form fields
-                email: '',
-                password: '',
-            })
-            redirect('/')
         } catch (error) {
             console.error(error)
         }
-
     }
+
     const signInWithGoogle = async () => {//signin with google popup
         try {
             await signInWithPopup(auth, provider)

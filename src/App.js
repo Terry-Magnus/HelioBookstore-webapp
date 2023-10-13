@@ -5,6 +5,7 @@ import {
     Routes, Route
 } from "react-router-dom";
 import Collections from "./pages/collections/collections";
+import ItemPage from "./pages/itempage/itempage";
 import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import Auth from "./pages/auth"
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/collections" element={<Collections />} />
                 <Route path="*" element={<NotFound />} />
                 <Route path="/auth" element={<Auth />} />
+                <Route path="/book" element={<ItemPage />} />
             </Routes>
             <Footer />
         </div>

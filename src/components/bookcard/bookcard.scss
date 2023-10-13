@@ -1,15 +1,15 @@
 @use "../../App.scss" as var;
 
 
-.card {
+.item-card {
     width: 200px;
-    background-color: var.$blue;
+    background-color: var.$accent;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px -5px 10px 5px rgba(0, 0, 0, 0.5);
     padding: 16px;
     margin-bottom: 16px;
     text-align: center;
-    color: var.$milk;
+    color: var.$text;
 
     img {
         width: 100%;
@@ -23,7 +23,7 @@
     p {
         font-size: 14px;
         text-align: center;
-        color: #666;
+        color: var.$text;
         margin-bottom: 8px;
     }
 }

@@ -1,25 +1,20 @@
 import { useEffect, useState } from "react"
 import banner from "../../assets/images/reading.svg"
+import BookCard from "../../components/bookcard/bookcard"
 import "./homepage.scss"
 
 const Homepage = () => {
     const [featuredBooks, setFeaturedBooks] = useState([])
 
+    const getFeaturedBooks = async () => {
+        const response = await fetch("https://example-data.draftbit.com/books?_limit=8")
+        const results = await response.json()
+        setFeaturedBooks(results)
+    }
 
-    // const increase = () => {
-    //     dispatch({ type = "INC" })
-    // }
-    // const decrease = () => {
-    //     dispatch({ type = "DEC" })
-    // }
-    // const getFeaturedBooks = async () => {
-    //     const response = await fetch("https://example-data.draftbit.com/books?_limit=8")
-    //     const results = await response.json()
-    //     console.log(results)
-    // }
-    // useEffect(() => {
-    //     getFeaturedBooks()
-    // }, [featuredBooks])
+    useEffect(() => {
+        getFeaturedBooks()
+    }, [featuredBooks])
 
     return (
         <>
@@ -38,6 +33,16 @@ const Homepage = () => {
             <section className="featured">
                 <h1>Featured Books</h1>
                 <div className="card-deck">
+                    {featuredBooks.map((book, index) => {
+                        return <BookCard key={index}
+                            title={book.title}
+                            author={book.authors}
+                            image={book.image_url}
+                            description={book.description}
+                            genre={book.genre}
+                            rating={book.rating}
+                        />
+                    })}
                 </div>
             </section>
             <section className="call-to-action">
@@ -47,7 +52,7 @@ const Homepage = () => {
             </section>
             <section className="reviews">
                 <h4>No reviews available at this time</h4>
-                {/* <h2>{counter}</h2> */}
+
             </section>
         </>
     )
